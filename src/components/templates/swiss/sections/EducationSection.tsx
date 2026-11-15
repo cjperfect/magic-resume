@@ -5,7 +5,7 @@ import SectionTitle from "./SectionTitle";
 import SectionWrapper from "../../shared/SectionWrapper";
 import { useLocale } from "@/i18n/compat/client";
 import { hasMeaningfulRichTextContent, normalizeRichTextContent } from "@/lib/richText";
-import { formatDateRange } from "@/lib/utils";
+import { formatEducationDate } from "@/lib/utils";
 import SectionLogo from "../../shared/SectionLogo";
 
 interface EducationSectionProps {
@@ -51,7 +51,7 @@ const EducationSection = ({ education, globalSettings, showTitle = true }: Educa
                                     className="ml-auto self-center font-mono text-slate-400 bg-slate-50 border border-slate-100/80 px-2 py-0.5 rounded text-[11px] font-semibold shrink-0"
                                     suppressHydrationWarning
                                 >
-                                    {formatDateRange(edu.startDate, edu.endDate, locale, globalSettings?.dateFormat)}
+                                    {formatEducationDate(edu, locale, globalSettings?.dateFormat)}
                                 </div>
                             </div>
 

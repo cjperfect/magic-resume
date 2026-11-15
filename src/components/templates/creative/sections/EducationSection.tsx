@@ -5,7 +5,7 @@ import SectionTitle from "./SectionTitle";
 import SectionWrapper from "../../shared/SectionWrapper";
 import { useLocale } from "@/i18n/compat/client";
 import { hasMeaningfulRichTextContent, normalizeRichTextContent } from "@/lib/richText";
-import { formatDateRange } from "@/lib/utils";
+import { formatEducationDate } from "@/lib/utils";
 import SectionLogo from "../../shared/SectionLogo";
 
 interface EducationSectionProps {
@@ -39,7 +39,7 @@ const EducationSection = ({ education, globalSettings, showTitle = true }: Educa
                             )}
                             <span className={`text-subtitleFont shrink-0 ${flexLayout ? "ml-auto" : "flex-1 text-right"}`} suppressHydrationWarning
                                 style={{ fontSize: `${globalSettings?.subheaderSize || 16}px` }}>
-                                {formatDateRange(edu.startDate, edu.endDate, locale, globalSettings?.dateFormat)}
+                                {formatEducationDate(edu, locale, globalSettings?.dateFormat)}
                             </span>
                         </motion.div>
                         {!centerSubtitle && (

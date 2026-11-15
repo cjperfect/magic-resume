@@ -107,6 +107,8 @@ export interface Education {
   degree: string;
   startDate: string;
   endDate: string;
+  dateMode?: "range" | "custom";
+  dateText?: string;
   gpa?: string;
   description?: string;
   visible?: boolean;

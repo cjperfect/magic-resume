@@ -89,22 +89,50 @@ const EducationEditor: React.FC<EducationEditorProps> = ({
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <Field
-            label={t("labels.startDate")}
-            value={education.startDate}
-            onChange={(value) => handleChange("startDate", value)}
-            type="date"
-            placeholder="YYYY-MM"
-          />
-          <Field
-            label={t("labels.endDate")}
-            value={education.endDate}
-            onChange={(value) => handleChange("endDate", value)}
-            type="date"
-            placeholder="YYYY-MM"
-            showPresentSwitch={true}
-          />
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <span className="text-sm font-medium">{t("labels.date")}</span>
+            <div className="flex gap-1" role="group" aria-label={t("labels.date")}>
+              {(["range", "custom"] as const).map((mode) => (
+                <Button
+                  key={mode}
+                  type="button"
+                  size="sm"
+                  variant={(education.dateMode || "range") === mode ? "secondary" : "ghost"}
+                  aria-pressed={(education.dateMode || "range") === mode}
+                  onClick={() => handleChange("dateMode", mode)}
+                >
+                  {t(`dateModes.${mode}`)}
+                </Button>
+              ))}
+            </div>
+          </div>
+          {education.dateMode === "custom" ? (
+            <Field
+              label={t("labels.dateText")}
+              value={education.dateText || ""}
+              onChange={(value) => handleChange("dateText", value)}
+              placeholder={t("placeholders.dateText")}
+            />
+          ) : (
+            <div className="grid grid-cols-2 gap-4">
+              <Field
+                label={t("labels.startDate")}
+                value={education.startDate}
+                onChange={(value) => handleChange("startDate", value)}
+                type="date"
+                placeholder="YYYY-MM"
+              />
+              <Field
+                label={t("labels.endDate")}
+                value={education.endDate}
+                onChange={(value) => handleChange("endDate", value)}
+                type="date"
+                placeholder="YYYY-MM"
+                showPresentSwitch={true}
+              />
+            </div>
+          )}
         </div>
 
         <Field

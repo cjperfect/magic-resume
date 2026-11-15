@@ -888,7 +888,12 @@
       }
     },
     "educationItem": {
+      "dateModes": {
+        "range": "日期范围",
+        "custom": "自定义文本"
+      },
       "labels": {
+        "dateText": "时间文本",
         "school": "学校名称",
         "degree": "学历",
         "major": "专业",
@@ -899,6 +904,7 @@
         "endDate": "结束时间"
       },
       "placeholders": {
+        "dateText": "例如：毕业时间：2021-06",
         "school": "请输入学校名称",
         "degree": "请选择学历",
         "major": "请输入专业名称",

@@ -932,7 +932,12 @@
       }
     },
     "educationItem": {
+      "dateModes": {
+        "range": "Date range",
+        "custom": "Custom text"
+      },
       "labels": {
+        "dateText": "Date text",
         "school": "School Name",
         "degree": "Degree",
         "major": "Major",
@@ -944,6 +949,7 @@
         "endDate": "End Date"
       },
       "placeholders": {
+        "dateText": "e.g. Graduation: 2021-06",
         "school": "Enter school name",
         "degree": "Select degree",
         "major": "Enter major",

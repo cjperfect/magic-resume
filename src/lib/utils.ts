@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { RESUME_DATE_FORMATS, type ResumeDateFormat } from "@/types/resume"
+import { RESUME_DATE_FORMATS, type ResumeDateFormat, type Education } from "@/types/resume"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -139,4 +139,15 @@ export function formatDateRange(
   return [start, end]
     .filter(Boolean)
     .join(getRangeSeparator(normalizeDateFormat(dateFormat)));
+}
+
+/** 自定义教育时间原样展示，历史简历继续使用日期范围。 */
+export function formatEducationDate(
+  education: Pick<Education, "startDate" | "endDate" | "dateMode" | "dateText">,
+  locale: string = "zh",
+  dateFormat?: ResumeDateFormat
+): string {
+  return education.dateMode === "custom"
+    ? education.dateText || ""
+    : formatDateRange(education.startDate, education.endDate, locale, dateFormat);
 }
